@@ -1,0 +1,61 @@
+.moviesContainer {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.editMovieButton {
+    cursor: pointer;
+    text-align: center;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.newMovieButton {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    border-width: 5px;
+    border-color: grey solid 1px;
+    border-radius: 5px;
+    background-color: green;
+    width: 100px;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    text-align: center;
+}
+
+.inputTitle {
+    display:block;
+}
+
+.input {
+    width: 50%;
+}
+
+.marginTop20 {
+    margin-top: 20px;
+}
+
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+
+.submitButton {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px black;
+    border-width: 5px;
+    border-color: grey solid 1px;
+    border-radius: 5px;
+    background-color: grey;
+    width: 100px;
+    color: white;
+    margin: 15px;
+    margin-top: 30px;
+    text-align: center;
+}

@@ -1,53 +1,13 @@
-# TestWe (temps recommandé: 2h00)
+# react-interview
 
-TestWe dispose d'une petite application Symfony destinée à visualiser des informations sur des films. Cette application très basique est implémentée en Symfony uniquement (génération des pages côté serveur).
+1. Lister les films dans des cartes avec: le titre en gras, la catégorie et une jauge type Youtube indiquant le ratio likes/dislikes. Les cartes doivent être côtes à côtes et responsive. Càd que lorsque la fenêtre se réduit, les cartes sautent à la ligne suivante.
 
-Nos utilisateurs souhaitent une interface plus moderne, développée dans un framework front type React ou Angular. Ils se plaignent également des performances vu le nombre grandissant de films.
+2. Ajouter un bouton dans les cartes permettant de supprimer celle-ci
 
-Instructions :
-En commencant par la page /movie/ et en avançeant autant que possible dans le temps indiqué :
+3. Ajouter un bouton toggle like/dislike
 
-- Mettez en place des APIs REST exposant les données de l'application
-- Mettez en place une application React ou Angular affichant ces données de la façon la plus pratique possible pour les utilisateurs
+4. Ajouter un filtre par catégorie (de type multiselect) en supposant qu'on ne les connaisse pas à l'avance (il faut donc les récupérer dynamiquement depuis les films). Si tous les films d'une catégorie sont supprimés, celle-ci ne doit plus appraître.
 
-Vu le temps limité, l'objectif n'est bien sûr pas de tout faire. Aucun style particulier n'est demandé pour la partie front, juste quelque chose de fonctionnel. La prise en compte des performances avec un volume élevé de données est importante.
-
-##Étape 1 : Installation
-
-1. Fork le projet
-2. Installer les dependances
-3. Créez la base de donnée 'test'
-4. Créez les tables en ligne de commande ou via le fichier datas/test-cinemahd-database.sql
-5. Importez les données situées dans le fichier datas/test-cinemahd-datas.sql
-
-Rendu: Un repository git avec vos modifications.
-
-##Voilà toute la documentation sur l'application actuelle:
-
-####Url Films :
-
-- /movie/
-- /movie/new
-- /movie/edit/{id}
-
-####Url des personnes :
-
-- /person/
-- /person/new
-- /person/edit/{id}
-- /person/movies/{id}
-
-####Url des salles :
-
-- /room/
-- /room/new
-- /room/edit/{id}
-
-# Démarrer l'application
-## Symfony (à la racine du dossier sur la branche sf4)
-- composer install
-- symfony server:start OU php -S 127.0.0.1:8000 -t public
-
-## ReactJS (à la racine du dossier sur la branche react-js)
-- npm install
-- npm start
+5. Ajouter un système de pagination avec les fonctionnalités suivantes: 
+    * Boutons précédent/suivant
+    * Choix du nombre d'élements affichés par page (4, 8 ou 12).
