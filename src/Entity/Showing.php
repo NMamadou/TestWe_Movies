@@ -25,7 +25,7 @@ class Showing
     private $date;
 
     /**
-     * @ORM\Column(name="3D", type="boolean")
+     * @ORM\Column(name="`3D`", type="boolean")
      */
     private $is3D;
 

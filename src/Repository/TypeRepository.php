@@ -19,6 +19,22 @@ class TypeRepository extends ServiceEntityRepository
         parent::__construct($registry, Type::class);
     }
 
+    /**
+     *
+     * @return Type[]
+     */
+    public function getAllTypes(): array
+    {
+        $sql = " SELECT *
+                FROM
+                    TYPE ";
+
+        $stmt = $this->_em->getConnection()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
     // /**
     //  * @return Type[] Returns an array of Type objects
     //  */

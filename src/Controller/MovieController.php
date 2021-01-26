@@ -7,6 +7,7 @@ use App\Form\MovieType;
 use App\Service\MovieService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,16 +21,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class MovieController extends AbstractController
 {
     /**
-     * @Route("/", name="listMovie")
-     * @Template("Movie/index.html.twig")
+     * @Route(
+     *   "/",
+     *   name = "listMovie",
+     *   methods = "GET"
+     * )
      * @param MovieService $movieService
-     * @return array
+     * @return JsonResponse
      */
-    public function index(MovieService $movieService): array
+    public function index(MovieService $movieService): JsonResponse
     {
         $movies = $movieService->getAllMovies();
 
-        return ["movies" => $movies];
+        return new JsonResponse($movies);
     }
 
     /**

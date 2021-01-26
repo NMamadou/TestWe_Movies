@@ -21,6 +21,37 @@ class MovieRepository extends ServiceEntityRepository
     }
 
     /**
+     *
+     * @return Movie[]
+     */
+    public function getAllMovies(): array
+    {
+        $sql = " SELECT 
+                    M.*,
+                    (
+                        SELECT STRING_AGG(T.NAME, ', ') AS TYPE
+                        FROM TYPE T
+                        INNER JOIN MOVIE_HAS_TYPE MT ON
+                            MT.TYPE_ID = T.ID
+                        AND MT.MOVIE_ID = M.ID
+                    ),
+                    (
+                        SELECT STRING_AGG(P.FIRSTNAME || ' ' || P.LASTNAME, ', ') AS PEOPLE
+                        FROM PEOPLE P
+                        INNER JOIN MOVIE_HAS_PEOPLE MP ON
+                            MP.PEOPLE_ID = P.ID
+                        AND MP.MOVIE_ID = M.ID
+                    )
+                FROM
+                    MOVIE M ";
+
+        $stmt = $this->_em->getConnection()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+    /**
      * @param Person $person
      * @return Person[]
      */
